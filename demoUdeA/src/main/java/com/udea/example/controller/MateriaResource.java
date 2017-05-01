@@ -135,4 +135,19 @@ public class MateriaResource {
 		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
 	}
 
+	/**
+	 * GET /materia/dias/:dia : get all courses given in a day
+	 *
+	 * @param dia
+	 *            the name of day to retrieve
+	 * @return the ResponseEntity with status 200 (OK) and with body the
+	 *         materia, or with status 404 (Not Found)
+	 */
+	@GetMapping("/materia/dias/{dia}")
+	public ResponseEntity<List<Materia>> getMateriasByDias(@PathVariable String dia) {
+		log.debug("REST request to get all courses teach in a one day : {}", dia);
+		List<Materia> materias = materiaRepository.findByDias(dia);
+		return new ResponseEntity<>(materias, HttpStatus.OK);
+	}
+
 }

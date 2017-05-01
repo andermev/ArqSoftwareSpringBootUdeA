@@ -129,4 +129,20 @@ public class EstudianteResource {
 		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
 	}
 
+	/**
+	 * GET /estudiantes/course/:nameCourse : get the estudiantes related with a
+	 * course.
+	 *
+	 * @param nameCourse
+	 *            the name of course to retrieve
+	 * @return the ResponseEntity with status 200 (OK) and with body the
+	 *         estudiantes, or with status 404 (Not Found)
+	 */
+	@GetMapping("/estudiantes/course/{nameCourse}")
+	public ResponseEntity<List<Estudiante>> getEstudiantesByMateria(@PathVariable String nameCourse) {
+		log.debug("REST request to get course related with the estudiantes : {}", nameCourse);
+		List<Estudiante> estudiantes = estudianteRepository.cantidadEstudiantesByMateria(nameCourse);
+		return new ResponseEntity<>(estudiantes, HttpStatus.OK);
+	}
+
 }

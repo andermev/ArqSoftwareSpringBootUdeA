@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.udea.example.entity.Materia;
 
 @Repository("materiaRepository")
-public interface MateriaRepository extends JpaRepository<Materia, Long>{
-//	List<Materia> obtenerMateriasByEstudiante(String estudianteId);
-	
+public interface MateriaRepository extends JpaRepository<Materia, Long> {
+	List<Materia> findByDias(String dias);
 }

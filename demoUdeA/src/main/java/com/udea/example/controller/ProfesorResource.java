@@ -130,4 +130,20 @@ public class ProfesorResource {
 		return ResponseEntity.ok().headers(HeaderUtil.createEntityDeletionAlert(ENTITY_NAME, id.toString())).build();
 	}
 
+	/**
+	 * GET /profesors/course/:nameCourse : get the profesors related with a
+	 * course.
+	 *
+	 * @param nameCourse
+	 *            the name of course to retrieve
+	 * @return the ResponseEntity with status 200 (OK) and with body the
+	 *         profesor, or with status 404 (Not Found)
+	 */
+	@GetMapping("/profesors/course/{nameCourse}")
+	public ResponseEntity<List<Profesor>> getProfesorsByMateria(@PathVariable String nameCourse) {
+		log.debug("REST request to get course related with the profesors : {}", nameCourse);
+		List<Profesor> profesors = profesorRepository.cantidadProfesoresByMateria(nameCourse);
+		return new ResponseEntity<>(profesors, HttpStatus.OK);
+	}
+
 }
