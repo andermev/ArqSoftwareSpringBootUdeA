@@ -2,23 +2,18 @@ package com.udea.example.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Materia.
@@ -36,66 +31,68 @@ public class Materia implements Serializable {
     @Column(name = "nombre")
     private String nombre;
     
-    @Column(name = "hora")
-    private Date hora;
+    @Column(name = "hora_inici")
+    private Date horaInicio;
     
-    @Column(name = "nota")
-    private Double nota;
+    @Column(name = "hora_fin")
+    private Date horaFin;
+    
+    @Column(name = "dias")
+    private String dias;
 
-    @JsonIgnore
+    @ManyToOne(cascade = CascadeType.ALL)
+//	@JoinTable(name = "aula", joinColumns = @JoinColumn(name = "aula_id"))
     private Aula aula;
 
     public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public Materia nombre(String nombre) {
-        this.nombre = nombre;
-        return this;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public Date getHora() {
-		return hora;
+		return id;
 	}
 
-	public void setHora(Date hora) {
-		this.hora = hora;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public Double getNota() {
-		return nota;
+	public String getNombre() {
+		return nombre;
 	}
 
-	public void setNota(Double nota) {
-		this.nota = nota;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
-    public Aula getAula() {
-        return aula;
-    }
+	public Date getHoraInicio() {
+		return horaInicio;
+	}
 
-    public Materia aula(Aula aula) {
-        this.aula = aula;
-        return this;
-    }
+	public void setHoraInicio(Date horaInicio) {
+		this.horaInicio = horaInicio;
+	}
 
-    public void setAula(Aula aula) {
-        this.aula = aula;
-    }
+	public Date getHoraFin() {
+		return horaFin;
+	}
 
-    @Override
+	public void setHoraFin(Date horaFin) {
+		this.horaFin = horaFin;
+	}
+
+	public String getDias() {
+		return dias;
+	}
+
+	public void setDias(String dias) {
+		this.dias = dias;
+	}
+
+	public Aula getAula() {
+		return aula;
+	}
+
+	public void setAula(Aula aula) {
+		this.aula = aula;
+	}
+
+	@Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
@@ -115,8 +112,9 @@ public class Materia implements Serializable {
         return Objects.hashCode(id);
     }
 
-    @Override
+	@Override
 	public String toString() {
-		return "Materia [id=" + id + ", nombre=" + nombre + ", hora=" + hora + ", nota=" + nota + ", aula=" + aula + "]";
+		return "Materia [id=" + id + ", nombre=" + nombre + ", horaInicio=" + horaInicio + ", horaFin=" + horaFin
+				+ ", dias=" + dias + ", aula=" + aula + "]";
 	}
 }

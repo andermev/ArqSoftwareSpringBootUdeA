@@ -1,22 +1,14 @@
 package com.udea.example.entity;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
  * A Estudiante.
@@ -25,32 +17,43 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "estudiante")
 public class Estudiante implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @Column(name = "nombre")
-    private String nombre;
-    
-    @Column(name = "carrera")
-    private String carrera;
-    
-    public Long getId() {
-        return id;
-    }
+	@Column(name = "nombres")
+	private String nombres;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	@Column(name = "apellidos")
+	private String apellidos;
 
-    public String getNombre() {
-		return nombre;
+	@Column(name = "carrera")
+	private String carrera;
+
+	public Long getId() {
+		return id;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNombres() {
+		return nombres;
+	}
+
+	public void setNombres(String nombre) {
+		this.nombres = nombre;
+	}
+
+	public String getApellidos() {
+		return apellidos;
+	}
+
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 
 	public String getCarrera() {
@@ -61,28 +64,28 @@ public class Estudiante implements Serializable {
 		this.carrera = carrera;
 	}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        Estudiante estudiante = (Estudiante) o;
-        if (estudiante.id == null || id == null) {
-            return false;
-        }
-        return Objects.equals(id, estudiante.id);
-    }
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Estudiante estudiante = (Estudiante) o;
+		if (estudiante.id == null || id == null) {
+			return false;
+		}
+		return Objects.equals(id, estudiante.id);
+	}
 
-    @Override
-    public int hashCode() {
-        return Objects.hashCode(id);
-    }
+	@Override
+	public int hashCode() {
+		return Objects.hashCode(id);
+	}
 
-    @Override
+	@Override
 	public String toString() {
-		return "Estudiante [id=" + id + ", nombre=" + nombre + ", carrera=" + carrera + "]";
+		return "Estudiante [id=" + id + ", nombres=" + nombres + ", carrera=" + carrera + "]";
 	}
 }

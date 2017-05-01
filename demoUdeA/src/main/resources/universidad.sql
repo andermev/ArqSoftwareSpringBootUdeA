@@ -22,13 +22,13 @@ CREATE TABLE IF NOT EXISTS `aula` (
   `tipo_aula` varchar(255) DEFAULT NULL,
   `ubicacion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla universidad.aula: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla universidad.aula: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `aula` DISABLE KEYS */;
 INSERT INTO `aula` (`id`, `tipo_aula`, `ubicacion`) VALUES
 	(1, 'PRESENCIAL', 'BLOQUE ING SALA LIS'),
-	(2, 'PRESENCIAL', 'BLOQUE ING 19-201'),
+	(2, 'PRESENCIAL', 'DRAI'),
 	(3, 'PRESENCIAL', 'BLOQUE ING 19-304'),
 	(4, 'PRESENCIAL', 'BLOQUE ING 21-216'),
 	(5, 'VIRTUAL', 'PLATAFORMA WIZIQ');
@@ -41,38 +41,41 @@ CREATE TABLE IF NOT EXISTS `estudiante` (
   `apellidos` varchar(255) DEFAULT NULL,
   `carrera` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla universidad.estudiante: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla universidad.estudiante: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
 INSERT INTO `estudiante` (`id`, `nombres`, `apellidos`, `carrera`) VALUES
-	(3, 'Ana', 'Agudelo', 'ING SISTEMAS'),
+	(3, 'Ana Maria', 'Agudelo Cadavid', 'ING SISTEMAS'),
 	(5, 'Harold', 'Castañeda', 'ING SISTEMAS'),
 	(6, 'Juan', 'Andrade', 'ING SISTEMAS'),
 	(7, 'Yeison', 'Jimenez', 'ING SISTEMAS'),
-	(8, 'Alexander', 'Uribe', 'ING SISTEMAS');
+	(8, 'Alexander', 'Uribe', 'ING SISTEMAS'),
+	(9, 'Sara', 'Gonzales', 'ING SISTEMAS');
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.estudiante_materia
 CREATE TABLE IF NOT EXISTS `estudiante_materia` (
   `estudiante_id` int(11) NOT NULL,
   `materia_id` int(11) NOT NULL,
-  PRIMARY KEY (`estudiante_id`,`materia_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `fk_estudiante_materia` (`estudiante_id`),
   KEY `fk_materia_estudiante` (`materia_id`),
   CONSTRAINT `fk_estudiante_materia` FOREIGN KEY (`estudiante_id`) REFERENCES `estudiante` (`id`),
   CONSTRAINT `fk_materia_estudiante` FOREIGN KEY (`materia_id`) REFERENCES `materia` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla universidad.estudiante_materia: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `estudiante_materia` DISABLE KEYS */;
-INSERT INTO `estudiante_materia` (`estudiante_id`, `materia_id`) VALUES
-	(3, 1),
-	(5, 1),
-	(8, 1),
-	(3, 2),
-	(5, 2),
-	(6, 3),
-	(7, 4);
+INSERT INTO `estudiante_materia` (`estudiante_id`, `materia_id`, `id`) VALUES
+	(3, 1, 1),
+	(3, 2, 2),
+	(5, 1, 3),
+	(5, 2, 4),
+	(6, 3, 5),
+	(7, 4, 6),
+	(8, 1, 7);
 /*!40000 ALTER TABLE `estudiante_materia` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.materia
@@ -117,18 +120,20 @@ INSERT INTO `profesor` (`id`, `nombres`, `apellidos`, `carrera`) VALUES
 CREATE TABLE IF NOT EXISTS `profesor_materia` (
   `profesor_id` int(11) NOT NULL,
   `materia_id` int(11) NOT NULL,
-  PRIMARY KEY (`profesor_id`,`materia_id`),
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`),
+  KEY `fk_profesor_materia` (`profesor_id`),
   KEY `fk_materia_profesor` (`materia_id`),
   CONSTRAINT `fk_materia_profesor` FOREIGN KEY (`materia_id`) REFERENCES `materia` (`id`),
   CONSTRAINT `fk_profesor_materia` FOREIGN KEY (`profesor_id`) REFERENCES `profesor` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla universidad.profesor_materia: ~3 rows (aproximadamente)
 /*!40000 ALTER TABLE `profesor_materia` DISABLE KEYS */;
-INSERT INTO `profesor_materia` (`profesor_id`, `materia_id`) VALUES
-	(1, 1),
-	(1, 2),
-	(2, 3);
+INSERT INTO `profesor_materia` (`profesor_id`, `materia_id`, `id`) VALUES
+	(1, 1, 1),
+	(1, 2, 2),
+	(2, 3, 3);
 /*!40000 ALTER TABLE `profesor_materia` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
