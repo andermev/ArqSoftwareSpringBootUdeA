@@ -7,6 +7,5 @@ import com.udea.example.entity.Aula;
 
 @Repository("aulaRepository")
 public interface AulaRepository extends JpaRepository<Aula, Long>{
-//	List<Aula> obtenerAulasByProfesor(String profesor);
 	
 }
