@@ -54,8 +54,8 @@ public class EstudianteResourceIntTest {
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-				.andExpect(jsonPath("$.[*].nombres").value(hasItem("Ana Maria")))
-				.andExpect(jsonPath("$.[*].apellidos").value(hasItem("Agudelo Cadavid")))
+				.andExpect(jsonPath("$.[*].nombres").value(hasItem("Ana")))
+				.andExpect(jsonPath("$.[*].apellidos").value(hasItem("Agudelo")))
 				.andExpect(jsonPath("$.[*].carrera").value(hasItem("ING SISTEMAS")));
 	}
 

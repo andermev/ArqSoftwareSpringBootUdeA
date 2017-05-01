@@ -54,8 +54,8 @@ public class ProfesorResourceIntTest {
 				.accept(MediaType.APPLICATION_JSON))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
-				.andExpect(jsonPath("$.[*].apellidos").value(hasItem("Mejia Valencia")))
-				.andExpect(jsonPath("$.[*].nombres").value(hasItem("Anderson Alexis")))
+				.andExpect(jsonPath("$.[*].apellidos").value(hasItem("Mejia")))
+				.andExpect(jsonPath("$.[*].nombres").value(hasItem("Anderson")))
 				.andExpect(jsonPath("$.[*].carrera").value(hasItem("ING SISTEMAS")));
 	}
 

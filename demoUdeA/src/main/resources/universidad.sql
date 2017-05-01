@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS `aula` (
   `tipo_aula` varchar(255) DEFAULT NULL,
   `ubicacion` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla universidad.aula: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla universidad.aula: ~7 rows (aproximadamente)
 /*!40000 ALTER TABLE `aula` DISABLE KEYS */;
 INSERT INTO `aula` (`id`, `tipo_aula`, `ubicacion`) VALUES
 	(1, 'PRESENCIAL', 'BLOQUE ING SALA LIS'),
@@ -43,16 +43,16 @@ CREATE TABLE IF NOT EXISTS `estudiante` (
   `apellidos` varchar(255) DEFAULT NULL,
   `carrera` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla universidad.estudiante: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla universidad.estudiante: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `estudiante` DISABLE KEYS */;
 INSERT INTO `estudiante` (`id`, `nombres`, `apellidos`, `carrera`) VALUES
-	(3, 'Ana Maria', 'Agudelo Cadavid', 'ING SISTEMAS'),
+	(3, 'Ana', 'Agudelo', 'ING SISTEMAS'),
 	(5, 'Harold', 'Castañeda', 'ING SISTEMAS'),
 	(6, 'Juan', 'Andrade', 'ING SISTEMAS'),
 	(7, 'Yeison', 'Jimenez', 'ING SISTEMAS'),
-	(9, 'Sara Maria', 'Gonzales Perez', 'ING SISTEMAS DISTANCIA');
+	(9, 'Sara', 'Perez', 'ING SISTEMAS DISTANCIA');
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.estudiante_materia
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `estudiante_materia` (
   CONSTRAINT `fk_materia_estudiante` FOREIGN KEY (`materia_id`) REFERENCES `materia` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla universidad.estudiante_materia: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla universidad.estudiante_materia: ~6 rows (aproximadamente)
 /*!40000 ALTER TABLE `estudiante_materia` DISABLE KEYS */;
 INSERT INTO `estudiante_materia` (`estudiante_id`, `materia_id`, `id`) VALUES
 	(3, 1, 1),
@@ -89,16 +89,16 @@ CREATE TABLE IF NOT EXISTS `materia` (
   PRIMARY KEY (`id`),
   KEY `fk_materia_aula_id` (`aula_id`),
   CONSTRAINT `fk_materia_aula_id` FOREIGN KEY (`aula_id`) REFERENCES `aula` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla universidad.materia: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla universidad.materia: ~5 rows (aproximadamente)
 /*!40000 ALTER TABLE `materia` DISABLE KEYS */;
 INSERT INTO `materia` (`id`, `nombre`, `hora_inicio`, `hora_fin`, `dias`, `aula_id`) VALUES
 	(1, 'ARQ DE SOFTWARE', '12:00:00', '14:00:00', 'MIERCOLES', 5),
 	(2, 'ARQ DE SOFTWARE', '10:00:00', '12:00:00', 'SABADOS', 5),
 	(3, 'BASE DE DATOS', '14:00:00', '16:00:00', 'LUNES', 1),
 	(4, 'BASE DE DATOS', '14:00:00', '16:00:00', 'JUEVES', 1),
-	(5, 'SISTEMAS OPERATIVOS', '12:00:00', '14:00:00', 'MARTES', 7);
+	(5, 'SISTEMAS OPERATIVOS', '12:00:00', '14:00:00', 'MIERCOLES', 7);
 /*!40000 ALTER TABLE `materia` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.profesor
@@ -108,12 +108,12 @@ CREATE TABLE IF NOT EXISTS `profesor` (
   `apellidos` varchar(255) DEFAULT NULL,
   `carrera` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 -- Volcando datos para la tabla universidad.profesor: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
 INSERT INTO `profesor` (`id`, `nombres`, `apellidos`, `carrera`) VALUES
-	(1, 'Anderson Alexis', 'Mejia Valencia', 'ING SISTEMAS'),
+	(1, 'Anderson', 'Mejia', 'ING SISTEMAS'),
 	(2, 'Diego', 'Botia', 'ING SISTEMAS');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 
