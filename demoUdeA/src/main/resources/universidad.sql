@@ -31,7 +31,9 @@ INSERT INTO `aula` (`id`, `tipo_aula`, `ubicacion`) VALUES
 	(2, 'PRESENCIAL', 'DRAI'),
 	(3, 'PRESENCIAL', 'BLOQUE ING 19-304'),
 	(4, 'PRESENCIAL', 'BLOQUE ING 21-216'),
-	(5, 'VIRTUAL', 'PLATAFORMA WIZIQ');
+	(5, 'VIRTUAL', 'PLATAFORMA WIZIQ'),
+	(7, 'VIRTUAL', 'PLATAFORMA WIZIQ'),
+	(8, 'VIRTUAL', 'PLATAFORMA WIZIQ');
 /*!40000 ALTER TABLE `aula` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.estudiante
@@ -50,8 +52,7 @@ INSERT INTO `estudiante` (`id`, `nombres`, `apellidos`, `carrera`) VALUES
 	(5, 'Harold', 'Castañeda', 'ING SISTEMAS'),
 	(6, 'Juan', 'Andrade', 'ING SISTEMAS'),
 	(7, 'Yeison', 'Jimenez', 'ING SISTEMAS'),
-	(8, 'Alexander', 'Uribe', 'ING SISTEMAS'),
-	(9, 'Sara', 'Gonzales', 'ING SISTEMAS');
+	(9, 'Sara Maria', 'Gonzales Perez', 'ING SISTEMAS DISTANCIA');
 /*!40000 ALTER TABLE `estudiante` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.estudiante_materia
@@ -74,8 +75,7 @@ INSERT INTO `estudiante_materia` (`estudiante_id`, `materia_id`, `id`) VALUES
 	(5, 1, 3),
 	(5, 2, 4),
 	(6, 3, 5),
-	(7, 4, 6),
-	(8, 1, 7);
+	(7, 4, 6);
 /*!40000 ALTER TABLE `estudiante_materia` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.materia
@@ -97,7 +97,8 @@ INSERT INTO `materia` (`id`, `nombre`, `hora_inicio`, `hora_fin`, `dias`, `aula_
 	(1, 'ARQ DE SOFTWARE', '12:00:00', '14:00:00', 'MIERCOLES', 5),
 	(2, 'ARQ DE SOFTWARE', '10:00:00', '12:00:00', 'SABADOS', 5),
 	(3, 'BASE DE DATOS', '14:00:00', '16:00:00', 'LUNES', 1),
-	(4, 'BASE DE DATOS', '14:00:00', '16:00:00', 'JUEVES', 1);
+	(4, 'BASE DE DATOS', '14:00:00', '16:00:00', 'JUEVES', 1),
+	(5, 'SISTEMAS OPERATIVOS', '12:00:00', '14:00:00', 'MARTES', 7);
 /*!40000 ALTER TABLE `materia` ENABLE KEYS */;
 
 -- Volcando estructura para tabla universidad.profesor
@@ -112,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `profesor` (
 -- Volcando datos para la tabla universidad.profesor: ~2 rows (aproximadamente)
 /*!40000 ALTER TABLE `profesor` DISABLE KEYS */;
 INSERT INTO `profesor` (`id`, `nombres`, `apellidos`, `carrera`) VALUES
-	(1, 'Anderson', 'Mejia', 'ING SISTEMAS'),
+	(1, 'Anderson Alexis', 'Mejia Valencia', 'ING SISTEMAS'),
 	(2, 'Diego', 'Botia', 'ING SISTEMAS');
 /*!40000 ALTER TABLE `profesor` ENABLE KEYS */;
 
