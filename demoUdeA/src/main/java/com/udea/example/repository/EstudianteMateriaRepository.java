@@ -15,6 +15,7 @@ public interface EstudianteMateriaRepository extends JpaRepository<EstudianteMat
 	@Transactional
 	@Modifying
 	@Query(value = "delete from EstudianteMateria e where e.estudianteId = :estudianteId")
+//	@Query(value = "delete from EstudianteMateria e where e.estudiante_id = :estudianteId", nativeQuery = true)
 	void deleteEstudiante(@Param("estudianteId") Long estudianteId);
 
 }

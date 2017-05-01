@@ -13,8 +13,8 @@ import javax.persistence.Table;
  * A Estudiante.
  */
 @Entity
-@Table(name = "estudiante_materia")
-public class EstudianteMateria implements Serializable {
+@Table(name = "profesor_materia")
+public class ProfesorMateria implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -22,18 +22,18 @@ public class EstudianteMateria implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "estudiante_id")
-	private Long estudianteId;
+	@Column(name = "profesor_id")
+	private Long profesorId;
 
 	@Column(name = "materia_id")
 	private Long materiaId;
 
-	public Long getEstudianteId() {
-		return estudianteId;
+	public Long getProfesorId() {
+		return profesorId;
 	}
 
-	public void setEstudianteId(Long estudianteId) {
-		this.estudianteId = estudianteId;
+	public void setProfesorId(Long profesorId) {
+		this.profesorId = profesorId;
 	}
 
 	public Long getMateriaId() {
@@ -52,12 +52,7 @@ public class EstudianteMateria implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		EstudianteMateria other = (EstudianteMateria) obj;
-		if (estudianteId == null) {
-			if (other.estudianteId != null)
-				return false;
-		} else if (!estudianteId.equals(other.estudianteId))
-			return false;
+		ProfesorMateria other = (ProfesorMateria) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -68,6 +63,11 @@ public class EstudianteMateria implements Serializable {
 				return false;
 		} else if (!materiaId.equals(other.materiaId))
 			return false;
+		if (profesorId == null) {
+			if (other.profesorId != null)
+				return false;
+		} else if (!profesorId.equals(other.profesorId))
+			return false;
 		return true;
 	}
 
@@ -75,14 +75,14 @@ public class EstudianteMateria implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((estudianteId == null) ? 0 : estudianteId.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((materiaId == null) ? 0 : materiaId.hashCode());
+		result = prime * result + ((profesorId == null) ? 0 : profesorId.hashCode());
 		return result;
 	}
 
 	@Override
 	public String toString() {
-		return "EstudianteMateria [id=" + id + ", estudianteId=" + estudianteId + ", materiaId=" + materiaId + "]";
+		return "ProfesorMateria [id=" + id + ", profesorId=" + profesorId + ", materiaId=" + materiaId + "]";
 	}
 }
