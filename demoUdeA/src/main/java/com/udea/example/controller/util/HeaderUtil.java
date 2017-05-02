@@ -13,28 +13,28 @@ public class HeaderUtil {
 
     public static HttpHeaders createAlert(String message, String param) {
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-nutrifitApp-alert", message);
-        headers.add("X-nutrifitApp-params", param);
+        headers.add("X-demoUdeA-alert", message);
+        headers.add("X-demoUdeA-params", param);
         return headers;
     }
 
     public static HttpHeaders createEntityCreationAlert(String entityName, String param) {
-        return createAlert("nutrifitApp." + entityName + ".created", param);
+        return createAlert("demoUdeA." + entityName + ".created", param);
     }
 
     public static HttpHeaders createEntityUpdateAlert(String entityName, String param) {
-        return createAlert("nutrifitApp." + entityName + ".updated", param);
+        return createAlert("demoUdeA." + entityName + ".updated", param);
     }
 
     public static HttpHeaders createEntityDeletionAlert(String entityName, String param) {
-        return createAlert("nutrifitApp." + entityName + ".deleted", param);
+        return createAlert("demoUdeA." + entityName + ".deleted", param);
     }
 
     public static HttpHeaders createFailureAlert(String entityName, String errorKey, String defaultMessage) {
         log.error("Entity creation failed, {}", defaultMessage);
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-nutrifitApp-error", "error." + errorKey);
-        headers.add("X-nutrifitApp-params", entityName);
+        headers.add("X-demoUdeA-error", "error." + errorKey);
+        headers.add("X-demoUdeA-params", entityName);
         return headers;
     }
 }

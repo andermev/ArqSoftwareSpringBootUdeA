@@ -43,13 +43,11 @@ public class EstudianteResource {
 	/**
 	 * POST /estudiantes : Create a new estudiante.
 	 *
-	 * @param estudiante
-	 *            the estudiante to create
+	 * @param estudiante the estudiante to create
 	 * @return the ResponseEntity with status 201 (Created) and with body the
 	 *         new estudiante, or with status 400 (Bad Request) if the
 	 *         estudiante has already an ID
-	 * @throws URISyntaxException
-	 *             if the Location URI syntax is incorrect
+	 * @throws URISyntaxException if the Location URI syntax is incorrect
 	 */
 	@PostMapping("/estudiantes")
 	public ResponseEntity<Estudiante> createEstudiante(@RequestBody Estudiante estudiante) throws URISyntaxException {
@@ -66,14 +64,12 @@ public class EstudianteResource {
 	/**
 	 * PUT /estudiantes : Updates an existing estudiante.
 	 *
-	 * @param estudiante
-	 *            the estudiante to update
+	 * @param estudiante the estudiante to update
 	 * @return the ResponseEntity with status 200 (OK) and with body the updated
 	 *         estudiante, or with status 400 (Bad Request) if the estudiante is
 	 *         not valid, or with status 500 (Internal Server Error) if the
 	 *         estudiante couldnt be updated
-	 * @throws URISyntaxException
-	 *             if the Location URI syntax is incorrect
+	 * @throws URISyntaxException if the Location URI syntax is incorrect
 	 */
 	@PutMapping("/estudiantes")
 	public ResponseEntity<Estudiante> updateEstudiante(@RequestBody Estudiante estudiante) throws URISyntaxException {
@@ -102,8 +98,7 @@ public class EstudianteResource {
 	/**
 	 * GET /estudiantes/:id : get the "id" estudiante.
 	 *
-	 * @param id
-	 *            the id of the estudiante to retrieve
+	 * @param id the id of the estudiante to retrieve
 	 * @return the ResponseEntity with status 200 (OK) and with body the
 	 *         estudiante, or with status 404 (Not Found)
 	 */
@@ -117,8 +112,7 @@ public class EstudianteResource {
 	/**
 	 * DELETE /estudiantes/:id : delete the "id" estudiante.
 	 *
-	 * @param id
-	 *            the id of the estudiante to delete
+	 * @param id the id of the estudiante to delete
 	 * @return the ResponseEntity with status 200 (OK)
 	 */
 	@DeleteMapping("/estudiantes/{id}")
@@ -133,8 +127,7 @@ public class EstudianteResource {
 	 * GET /estudiantes/course/:nameCourse : get the estudiantes related with a
 	 * course.
 	 *
-	 * @param nameCourse
-	 *            the name of course to retrieve
+	 * @param nameCourse the name of course to retrieve
 	 * @return the ResponseEntity with status 200 (OK) and with body the
 	 *         estudiantes, or with status 404 (Not Found)
 	 */
